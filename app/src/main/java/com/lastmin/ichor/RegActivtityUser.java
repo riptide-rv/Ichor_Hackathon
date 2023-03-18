@@ -3,22 +3,77 @@ package com.lastmin.ichor;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.EditText;
 
+import com.google.android.gms.tasks.SuccessContinuation;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.lastmin.ichor.databinding.ActivityRegActivtityUserBinding;
+import com.lastmin.ichor.domains.DonorUser;
+import com.lastmin.ichor.domains.User;
+
+import java.util.ArrayList;
 
 public class RegActivtityUser extends AppCompatActivity {
     ActivityRegActivtityUserBinding binding;
+    FirebaseDatabase db;
+    DatabaseReference userref;
+    EditText etName,etAge,etEmail,etPhone,etAddress,etBloodGroup;
+    FirebaseAuth mauth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityRegActivtityUserBinding.inflate(getLayoutInflater());
+        mauth = FirebaseAuth.getInstance();
+        etName = binding.etName;
+        etAddress = binding.etAddress;
+        etAge = binding.etAge;
+        etBloodGroup = binding.etBloodGroup;
+        etPhone  = binding.etPhone;
+        etEmail = binding.etEmail;
+
+        db = FirebaseDatabase.getInstance();
+        userref = db.getReference().child("Users");
+
 
         setContentView(binding.getRoot());
-        String email = getIntent().getStringArrayListExtra("info").get(0);
-        String pass = getIntent().getStringArrayListExtra("info").get(1);
 
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,pass);
+
+
+        binding.buNewUser.setOnClickListener(view->{
+            createNewUser();
+
+
+        });
+    }
+
+    private void createNewUser() {
+        ArrayList<String> info = getIntent().getStringArrayListExtra("info");
+        String email = info.get(0);
+
+        String pass = info.get(1);
+        System.out.println(email+ "  "+pass);
+
+
+     //   DonorUser donorUser = new DonorUser(String.valueOf(etName.getText()),Integer.parseInt(String.valueOf(etAge.getText())),String.valueOf( etEmail.getText()),
+        //        etPhone.getFontFeatureSettings(),String.valueOf( etAddress.getText()),String.valueOf( etBloodGroup.getText()));
+       mauth.createUserWithEmailAndPassword(email,pass).addOnSuccessListener(task->{
+            mauth.signInWithEmailAndPassword(email,pass).addOnSuccessListener(
+                   task2->{
+                       userref.child(mauth.getCurrentUser().getUid()).setValue(new User(email,0));
+
+                   }
+            );
+        });
+
+
+
+
+
     }
 }
