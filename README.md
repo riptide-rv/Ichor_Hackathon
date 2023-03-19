@@ -1,5 +1,5 @@
 
-**# Ichor App**
+# **Ichor App**
 
 ## A Blood Donation App
 
