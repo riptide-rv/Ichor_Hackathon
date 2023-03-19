@@ -34,11 +34,12 @@ public class NewOrganisation extends AppCompatActivity {
         mauth = FirebaseAuth.getInstance();
         myref = FirebaseDatabase.getInstance().getReference().child("Users");
         orgref = FirebaseDatabase.getInstance().getReference().child("Orgs");
+
         binding.buCreateOrg.setOnClickListener(view->{
             mauth.createUserWithEmailAndPassword(email,pass).addOnSuccessListener(
                     task->{
                        String id =  task.getUser().getUid();
-                       myref.child("Users").setValue(new User(email,1));
+                       myref.child(id).setValue(new User(email,1));
                         OrganisationUser organisationUser = new OrganisationUser(
                                 String.valueOf(etNameOrg.getText()),
                                 String.valueOf(etEmailOrg.getText()),

@@ -1,5 +1,6 @@
 package com.lastmin.ichor;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,8 +16,11 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lastmin.ichor.databinding.ActivityMainBinding;
 import com.lastmin.ichor.domains.User;
 
@@ -62,18 +66,25 @@ public class MainActivity extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(task -> {
                 if(task.isSuccessful()){
                     currentUser  = mAuth.getCurrentUser();
-                    userref.child(currentUser.getUid()).get().addOnSuccessListener(
-                            task3->{
-                                User user1 = task3.getValue(User.class);
-                                System.out.println(user1.toString());
-                                if(user1.getMode()==0){
-                                    startUserActivity();
-                                }else {
-                                    startOrgActivity();
-                                }
-
+                    userref = FirebaseDatabase.getInstance().getReference("Users")
+                            .child(currentUser.getUid());
+                    userref.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            User user3 = snapshot.getValue(User.class);
+                           // assert user3 != null;
+                            if(user3.getMode()==0){
+                                startUserActivity();
+                            }else{
+                                startOrgActivity();
                             }
-                    );
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
 
 
                 }else{
@@ -99,13 +110,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
+        currentUser = mAuth.getCurrentUser();
 
 
         if(currentUser!=null){
+
             userref.child(currentUser.getUid()).get().addOnSuccessListener(
                     task->{
+
                         User user1 = task.getValue(User.class);
-                        System.out.println(user1.toString());
+
                         if(user1.getMode()==0){
                             startUserActivity();
                         }else {

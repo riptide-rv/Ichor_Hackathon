@@ -1,6 +1,8 @@
 package com.lastmin.ichor.domains;
 
-public class DonorUser {
+import java.io.Serializable;
+
+public class DonorUser implements Serializable {
 
     private String name;
     private int age;

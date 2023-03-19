@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    tools:context=".DonorUserActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/navDonor"
@@ -18,12 +19,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/donormenu"
-        app:title="Ichor" />
+        app:title="Ichor"
+        app:titleTextColor="@color/white" />
 
     <FrameLayout
         android:id="@+id/donorframe"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/main_red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

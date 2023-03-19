@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.lastmin.ichor"
-        minSdk 21
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -42,7 +42,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.0.4'
     implementation 'androidx.navigation:navigation-fragment:2.5.3'
     implementation 'androidx.navigation:navigation-ui:2.5.3'
-
+    implementation 'com.google.firebase:firebase-messaging:23.1.2'
 
 
     testImplementation 'junit:junit:4.13.2'
