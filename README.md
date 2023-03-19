@@ -25,6 +25,7 @@ Blood donation apps can also help raise awareness about the importance of blood 
 By knowing the number of available blood units, hospitals can avoid stock shortages and ensure that patients receive the blood they need in a timely manner.
 
 ## Features
+Link to our [figma prototype](https://www.figma.com/file/bgIa1wsSGklXd6ChfDcoGy/LastMin?node-id=0%3A1&t=54qke27It6qQMvR8-1)
 
 ![Login](https://user-images.githubusercontent.com/96327627/226164717-c28e2af0-617d-4131-8b6d-ea66e6b664dc.png)
 ![login forward](https://user-images.githubusercontent.com/96327627/226164849-8ff3c614-eb8b-4569-8962-6e756dfec537.png)
