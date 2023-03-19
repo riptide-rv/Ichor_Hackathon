@@ -2,6 +2,7 @@ package com.lastmin.ichor;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 
@@ -20,9 +21,10 @@ import java.util.ArrayList;
 public class RegActivtityUser extends AppCompatActivity {
     ActivityRegActivtityUserBinding binding;
     FirebaseDatabase db;
-    DatabaseReference userref;
+    DatabaseReference userref,donorref;
     EditText etName,etAge,etEmail,etPhone,etAddress,etBloodGroup;
     FirebaseAuth mauth;
+
 
 
     @Override
@@ -39,6 +41,7 @@ public class RegActivtityUser extends AppCompatActivity {
 
         db = FirebaseDatabase.getInstance();
         userref = db.getReference().child("Users");
+        donorref = db.getReference().child("Donors");
 
 
         setContentView(binding.getRoot());
@@ -47,6 +50,7 @@ public class RegActivtityUser extends AppCompatActivity {
 
         binding.buNewUser.setOnClickListener(view->{
             createNewUser();
+
 
 
         });
@@ -60,16 +64,33 @@ public class RegActivtityUser extends AppCompatActivity {
         System.out.println(email+ "  "+pass);
 
 
-     //   DonorUser donorUser = new DonorUser(String.valueOf(etName.getText()),Integer.parseInt(String.valueOf(etAge.getText())),String.valueOf( etEmail.getText()),
-        //        etPhone.getFontFeatureSettings(),String.valueOf( etAddress.getText()),String.valueOf( etBloodGroup.getText()));
+
        mauth.createUserWithEmailAndPassword(email,pass).addOnSuccessListener(task->{
             mauth.signInWithEmailAndPassword(email,pass).addOnSuccessListener(
                    task2->{
                        userref.child(mauth.getCurrentUser().getUid()).setValue(new User(email,0));
+                        DonorUser donorUser= new DonorUser(String.valueOf(etName.getText()),Integer.parseInt(String.valueOf(etAge.getText())),String.valueOf( etEmail.getText()),
+                               String.valueOf(etPhone.getText()),String.valueOf( etAddress.getText()),String.valueOf( etBloodGroup.getText()));
+                        donorref.child(mauth.getCurrentUser().getUid()).setValue(donorUser);
+                       Bundle bundle = new Bundle();
+                       bundle.putString("name",donorUser.getName());
+                       bundle.putString("email",donorUser.getEmail());
+                       bundle.putInt("age",donorUser.getAge());
+                       bundle.putString("phone",donorUser.getPhone());
+                       bundle.putString("bg",donorUser.getPhone());
+                       bundle.putString("address",donorUser.getAddress());
 
+                       Intent intent = new Intent(RegActivtityUser.this,DonorUserActivity.class).putExtra("userdata",bundle);
+                       startActivity(intent);
+                       finish();
                    }
             );
         });
+
+
+
+
+
 
 
 

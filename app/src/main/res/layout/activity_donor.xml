@@ -6,14 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".DonorActivity">
 
-    <Button
-        android:id="@+id/buLogOutDonor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:text="logout"
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="409dp"
+        android:layout_height="729dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView8"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/navy" />
+    </com.google.android.material.navigation.NavigationView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

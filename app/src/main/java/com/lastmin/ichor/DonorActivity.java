@@ -18,12 +18,10 @@ public class DonorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityDonorBinding = ActivityDonorBinding.inflate(getLayoutInflater());
 
+
         setContentView(activityDonorBinding.getRoot());
 
-        activityDonorBinding.buLogOutDonor.setOnClickListener(view -> {
-            FirebaseAuth.getInstance().signOut();
-            startLoginActivity();
-        });
+
     }
 
     private void startLoginActivity() {

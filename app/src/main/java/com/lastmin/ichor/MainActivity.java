@@ -15,7 +15,10 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.lastmin.ichor.databinding.ActivityMainBinding;
+import com.lastmin.ichor.domains.User;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etEmailMain,etPassMain;
     Button buLoginMain;
     TextView linkNewUser;
+    DatabaseReference userref;
 
 
     @Override
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());FirebaseAuth.getInstance();
         mAuth = FirebaseAuth.getInstance();
+        userref = FirebaseDatabase.getInstance().getReference().child("Users");
         etEmailMain = binding.etEmailMain;
         etPassMain = binding.etPassMain;
         linkNewUser = binding.linkSignUp;
@@ -81,14 +86,34 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         currentUser = mAuth.getCurrentUser();
+
         if(currentUser!=null){
-            startUserActivity();
-            finish();
+            userref.child(currentUser.getUid()).get().addOnSuccessListener(
+                    task->{
+                        User user1 = task.getValue(User.class);
+                        if(user1.getMode()==0){
+                            startUserActivity();
+                        }else {
+                            startOrgActivity();
+                        }
+
+                    }
+            );
+
 
         }
 
     }
+
+    private void startOrgActivity() {
+        startActivity(new Intent(getApplicationContext(),OrganisationActivity.class)
+                .putExtra("id",currentUser.getUid()));
+        finish();
+    }
+
     public  void startUserActivity(){
-        startActivity(new Intent(getApplicationContext(),DonorActivity.class));
+        startActivity(new Intent(getApplicationContext(),DonorUserActivity.class)
+                .putExtra("id",currentUser.getUid()));
+        finish();
     }
 }

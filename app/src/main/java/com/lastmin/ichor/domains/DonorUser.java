@@ -8,6 +8,19 @@ public class DonorUser {
     private String phone;
     private String address;
     private String bloodgroup;
+
+    @Override
+    public String toString() {
+        return "DonorUser{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", bloodgroup='" + bloodgroup + '\'' +
+                '}';
+    }
+
     public DonorUser(){
 
     }
