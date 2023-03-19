@@ -9,7 +9,7 @@ Ichor aims on providing a hassle-free blood supply platform which can be used by
 - About Ichor
 - Features
 - [Built With](https://github.com/riptide-rv/Ichor_Hackathon/blob/main/README.md#built-using)
-- License
+- [License](https://github.com/riptide-rv/Ichor_Hackathon/blob/main/README.md#license)
 
 
 ## About Ichor
