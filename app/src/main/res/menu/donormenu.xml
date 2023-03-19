@@ -6,6 +6,6 @@
         android:icon="@drawable/ic_launcher_foreground"/>
   <item android:id="@+id/donate" android:title="Donate"
       android:icon="@drawable/ic_launcher_foreground"/>
-    <item android:id="@+id/setting" android:title="Setting"
+    <item android:id="@+id/home" android:title="Home"
         android:icon="@drawable/ic_launcher_foreground"/>
 </menu>

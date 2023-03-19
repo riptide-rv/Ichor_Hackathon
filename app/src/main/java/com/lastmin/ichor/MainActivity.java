@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference userref;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());FirebaseAuth.getInstance();
         mAuth = FirebaseAuth.getInstance();
-        userref = FirebaseDatabase.getInstance().getReference().child("Users");
+        userref = FirebaseDatabase.getInstance().getReference("Users");
+        currentUser = mAuth.getCurrentUser();
         etEmailMain = binding.etEmailMain;
         etPassMain = binding.etPassMain;
         linkNewUser = binding.linkSignUp;
@@ -59,7 +61,19 @@ public class MainActivity extends AppCompatActivity {
 
             mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(task -> {
                 if(task.isSuccessful()){
-                    startUserActivity();
+                    currentUser  = mAuth.getCurrentUser();
+                    userref.child(currentUser.getUid()).get().addOnSuccessListener(
+                            task3->{
+                                User user1 = task3.getValue(User.class);
+                                System.out.println(user1.toString());
+                                if(user1.getMode()==0){
+                                    startUserActivity();
+                                }else {
+                                    startOrgActivity();
+                                }
+
+                            }
+                    );
 
 
                 }else{
@@ -85,12 +99,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
-        currentUser = mAuth.getCurrentUser();
+
 
         if(currentUser!=null){
             userref.child(currentUser.getUid()).get().addOnSuccessListener(
                     task->{
                         User user1 = task.getValue(User.class);
+                        System.out.println(user1.toString());
                         if(user1.getMode()==0){
                             startUserActivity();
                         }else {
