@@ -43,4 +43,4 @@ By knowing the number of available blood units, hospitals can avoid stock shorta
 Distributed under the MIT License. 
 
 
-/Assets/Login.png
+![Login](https://user-images.githubusercontent.com/96327627/226164717-c28e2af0-617d-4131-8b6d-ea66e6b664dc.png)
