@@ -47,7 +47,7 @@ By knowing the number of available blood units, hospitals can avoid stock shorta
 - Viewbinding
 - Java
 - Firebase Auth
-- Firebase Realtimr Database
+- Firebase Realtime Database
 - XML 
 - Figma
 
