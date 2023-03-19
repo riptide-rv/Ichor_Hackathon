@@ -6,7 +6,7 @@
 Ichor aims on providing a hassle-free blood supply platform which can be used by both inidviduals and healthcare organizations. 
 
 ## Table of contents
-- About Ichor
+- [About Ichor](https://github.com/riptide-rv/Ichor_Hackathon/blob/main/README.md#about-ichor)
 - [Features](https://github.com/riptide-rv/Ichor_Hackathon/blob/main/README.md#features)
 - [Built With](https://github.com/riptide-rv/Ichor_Hackathon/blob/main/README.md#built-using)
 - [License](https://github.com/riptide-rv/Ichor_Hackathon/blob/main/README.md#license)
@@ -14,7 +14,7 @@ Ichor aims on providing a hassle-free blood supply platform which can be used by
 
 ## About Ichor
 
-A blood donation app that can connect donors with hospitals can be highly beneficial for several reasons:
+Ichor is a blood donation app that can connect donors with hospitals can be highly beneficial for several reasons:
 
 With a blood donation app, donors can easily find blood donation centers and hospitals in their area that are in need of blood donations. 
 
