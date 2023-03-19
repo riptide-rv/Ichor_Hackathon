@@ -45,6 +45,7 @@ Link to our [*Figma Prototype*](https://www.figma.com/file/bgIa1wsSGklXd6ChfDcoG
 |----|----|
 |**Profile Org**|**Requests Org**|
 
+Map intehration still in progress...
 
 ## Built Using
 - Android Studio
