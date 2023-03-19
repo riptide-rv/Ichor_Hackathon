@@ -31,7 +31,7 @@ Link to our [*Figma Prototype*](https://www.figma.com/file/bgIa1wsSGklXd6ChfDcoG
 |-----|-----|
 | **Login**| **Login 2**|
 |![individual](https://user-images.githubusercontent.com/96327627/226164784-ae032e4a-85d7-47b4-9f79-c4e5172db015.png)|![org](https://user-images.githubusercontent.com/96327627/226164806-ca92c7d2-0028-4eda-ac63-c89887fbaf51.png)|
-| **Create Account|Individual**| **Create Account|Organization**|
+| **Create Account Individual**| **Create Account Organization**|
 
 |![ind home](https://user-images.githubusercontent.com/96327627/226164877-1dab4214-8e37-4d07-91cc-bdad88897ccd.png)|![ind profile](https://user-images.githubusercontent.com/96327627/226164883-bd785b08-bca7-432b-8b38-d7433c073988.png)|
 |----|----|
