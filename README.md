@@ -35,15 +35,15 @@ Link to our [*Figma Prototype*](https://www.figma.com/file/bgIa1wsSGklXd6ChfDcoG
 
 |![ind home](https://user-images.githubusercontent.com/96327627/226164877-1dab4214-8e37-4d07-91cc-bdad88897ccd.png)|![ind profile](https://user-images.githubusercontent.com/96327627/226164883-bd785b08-bca7-432b-8b38-d7433c073988.png)|
 |----|----|
-|** Home Individual**|** Profile Individual**|
+|**Home Individual**|**Profile Individual**|
 
 |![ind request](https://user-images.githubusercontent.com/96327627/226164887-198b47c8-72ae-4a88-a3bf-57005acdee74.png)|![Org Home](https://user-images.githubusercontent.com/96327627/226164896-4409f849-3eae-4473-bf1c-4053e7b85b9c.png)|
 |----|----|
-|** Donation Individual**|** Home Org**|
+|**Donation Individual**|**Home Org**|
 
 |![Org prof](https://user-images.githubusercontent.com/96327627/226164899-cd8aec54-de0c-4e60-96c4-79cb4b481d3f.png)|![Org Req](https://user-images.githubusercontent.com/96327627/226164904-912f1c17-674f-401a-b67d-7a562bd93262.png)|
 |----|----|
-|** Profile Org**|** Requests Org**|
+|**Profile Org**|**Requests Org**|
 
 
 ## Built Using
