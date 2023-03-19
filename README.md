@@ -27,8 +27,10 @@ By knowing the number of available blood units, hospitals can avoid stock shorta
 ## Features
 Link to our [*Figma Prototype*](https://www.figma.com/file/bgIa1wsSGklXd6ChfDcoGy/LastMin?node-id=0%3A1&t=54qke27It6qQMvR8-1)
 
-![Login](https://user-images.githubusercontent.com/96327627/226164717-c28e2af0-617d-4131-8b6d-ea66e6b664dc.png)
-![login forward](https://user-images.githubusercontent.com/96327627/226164849-8ff3c614-eb8b-4569-8962-6e756dfec537.png)
+|![Login](https://user-images.githubusercontent.com/96327627/226164717-c28e2af0-617d-4131-8b6d-ea66e6b664dc.png)|![login forward](https://user-images.githubusercontent.com/96327627/226164849-8ff3c614-eb8b-4569-8962-6e756dfec537.png)|
+|-----|-----|
+
+
 ![individual](https://user-images.githubusercontent.com/96327627/226164784-ae032e4a-85d7-47b4-9f79-c4e5172db015.png)
 ![org](https://user-images.githubusercontent.com/96327627/226164806-ca92c7d2-0028-4eda-ac63-c89887fbaf51.png)
 ![ind home](https://user-images.githubusercontent.com/96327627/226164877-1dab4214-8e37-4d07-91cc-bdad88897ccd.png)
